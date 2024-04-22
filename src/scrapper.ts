@@ -13,7 +13,7 @@ type Product = {
 
 const handler = async (event) => {
   const browser = await Puppeteer.launch({
-    headless: true
+    headless: false
   });
   const page = await browser.newPage();
 
