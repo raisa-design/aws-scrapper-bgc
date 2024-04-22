@@ -14,3 +14,29 @@ provider:
 functions:
   scrapper:
     handler: ./src/scrapper.handler
+  list:
+    handler: ./src/list.handler
+    events:
+      - httpApi:
+          method: GET
+          path: "/list/bestsellers"
+
+resources:
+  Resources:
+    bestsellers:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: bestsellers
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: N
+          - AttributeName: created_at
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+          - AttributeName: created_at
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
