@@ -1,12 +1,15 @@
 org: raisaalmeida
 app: aws-scrapper-bgc
 service: aws-scrapper-bgc
-frameworkVersion: '3'
+frameworkVersion: "3"
+
+plugins:
+  - serverless-plugin-typescript
 
 provider:
   name: aws
   runtime: nodejs18.x
 
 functions:
-  function1:
-    handler: index.handler
+  scrapper:
+    handler: ./src/scrapper.handler
