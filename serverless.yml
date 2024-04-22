@@ -5,6 +5,7 @@ frameworkVersion: "3"
 
 plugins:
   - serverless-plugin-typescript
+  - serverless-dotenv-plugin
 
 provider:
   name: aws
